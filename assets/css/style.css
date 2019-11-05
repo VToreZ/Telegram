@@ -1,0 +1,153 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif; }
+
+body {
+  margin: 0; }
+  body p {
+    font-size: 16px; }
+  body h1 {
+    font-size: 32px; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0; }
+
+.container {
+  width: 4800px;
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto; }
+
+.login_page_wrap {
+  width: 100%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100vh; }
+
+.login_page_wrap_logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: auto;
+  margin: 0 auto; }
+
+.login_page_wrap_form {
+  text-align: center;
+  display: block;
+  margin: 50px 15px; }
+  .login_page_wrap_form p {
+    color: #707579;
+    width: 240px;
+    margin: 20px auto 25px; }
+  .login_page_wrap_form .input_container {
+    display: block;
+    position: relative;
+    width: 360px;
+    margin: 0 auto; }
+  .login_page_wrap_form .form_default {
+    font-size: 16px;
+    position: relative;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+    border-radius: 10px;
+    width: 360px;
+    padding: 15px;
+    border: 1px solid #dadce0;
+    margin: 25px auto 0;
+    -webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
+    transition: border .2s linear, -webkit-box-shadow .2s linear;
+    -o-transition: border .2s linear, box-shadow .2s linear;
+    transition: border .2s linear, box-shadow .2s linear;
+    transition: border .2s linear, box-shadow .2s linear, -webkit-box-shadow .2s linear;
+    caret-color: #4ea4f6; }
+  .login_page_wrap_form .input_container--country {
+    position: relative; }
+  .login_page_wrap_form .input_container--country::after {
+    display: block;
+    content: "Country";
+    position: absolute;
+    font-size: 12px;
+    left: 10px;
+    top: 20px;
+    background-color: white;
+    padding: 0 5px;
+    color: #707579; }
+  .login_page_wrap_form .input_container--phone::after {
+    display: block;
+    content: "Phone Number";
+    position: absolute;
+    font-size: 12px;
+    left: 10px;
+    top: 20px;
+    background-color: white;
+    padding: 0 5px;
+    color: #707579; }
+  .login_page_wrap_form .form_default::-webkit-input-placeholder {
+    color: #a3adb5; }
+  .login_page_wrap_form .form_default:-ms-input-placeholder {
+    color: #a3adb5; }
+  .login_page_wrap_form .form_default::-ms-input-placeholder {
+    color: #a3adb5; }
+  .login_page_wrap_form .form_default::placeholder {
+    color: #a3adb5; }
+  .login_page_wrap_form .form_default:focus {
+    outline: none;
+    position: relative;
+    border: 1px solid #4ea4f6;
+    -webkit-box-shadow: 0 0 0 1px #4ea4f6;
+    box-shadow: 0 0 0 1px #4ea4f6; }
+  .login_page_wrap_form .form_default:focus ~ .input_container--country::after {
+    color: red; }
+  .login_page_wrap_form .input_select_button {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    -webkit-transform: rotateZ(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotateZ(180deg);
+    -webkit-transition: -webkit-transform .5s linear;
+    transition: -webkit-transform .5s linear;
+    -o-transition: transform .5s linear;
+    transition: transform .5s linear;
+    transition: transform .5s linear, -webkit-transform .5s linear; }
+  .login_page_wrap_form .checkbox_container {
+    margin-top: 30px;
+    height: 18px; }
+  .login_page_wrap_form .form_checkbox {
+    opacity: 50%;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 20px;
+    top: 0;
+    margin: 0; }
+  .login_page_wrap_form .form_checkbox_checkmark {
+    position: absolute;
+    border-radius: 5px;
+    background-color: red;
+    height: 18px;
+    width: 18px;
+    left: 18px;
+    top: 0;
+    background: url("/Icons/checkbox_1x.png");
+    background-size: 18px 18px; }
+  .login_page_wrap_form .checkbox_container input:checked ~ .form_checkbox_checkmark {
+    background-color: blue; }
+  .login_page_wrap_form .form_checkbox:checked ~ .form_checkbox_checkmark::after {
+    display: block; }
+  .login_page_wrap_form .form_checkbox_checkmark::after {
+    background: url("/Icons/checkboxon_1x.png"); }

@@ -128,6 +128,7 @@ h1, h2, h3, h4, h5, h6, p
   .checkbox_container
     margin-top: 30px
     height: 18px
+    text-align: left
 
   .form_checkbox
     opacity: 50%
@@ -160,6 +161,74 @@ h1, h2, h3, h4, h5, h6, p
 
   .form_checkbox_checkmark::after
     background: url("/Icons/checkboxon_1x.png")
+
+  .checkbox
+      position: relative
+      margin-bottom: 1rem
+
+
+
+  .checkbox__input
+      -webkit-appearance: none
+      appearance: none
+      position: absolute
+      top: -3px
+      left: 17px
+
+
+  .checkbox__label
+      padding-left: 82px
+
+      font-size: 1rem
+      color: #060606
+      cursor: pointer
+
+
+  .checkbox__label:before
+      content: ""
+      display: block
+      width: 24px
+      height: 24px
+
+      // border: 1px solid #ccc
+      background: url("/Icons/checkbox_1x.png") no-repeat
+      background-size: 24px 24px
+
+      position: absolute
+      top: -3px
+      left: 17px
+      z-index: 1
+      transition: background .1s linear, border .1s linear
+
+
+  .checkbox__label:after
+      content: ""
+      display: block
+      width: 24px
+      height: 24px
+
+      background: url("/Icons/checkboxon_1x.png") no-repeat
+      background-size: 24px 24px
+      opacity: 0
+
+      position: absolute
+      top: -3px
+      left: 17px
+      z-index: 2
+
+      transition: opacity .1s linear
+
+
+  .checkbox__input:checked + .checkbox__label:before
+      // background-color: #49d120
+      // border-color: #319612
+      opacity: 0
+
+
+  .checkbox__input:checked + .checkbox__label:after
+      opacity: 1
+
+
 
   // .input_select_button::before
   //   content: ""

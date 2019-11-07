@@ -16,12 +16,10 @@ h1, h2, h3, h4, h5, h6, p {
 .container {
   max-width: 1230px;
   padding: 0 15px;
-  margin: 0 auto;
-  border: 1px solid blue; }
+  margin: 0 auto; }
 
 .login_page_wrap {
   width: 100%;
-  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,26 +70,16 @@ h1, h2, h3, h4, h5, h6, p {
     caret-color: #4ea4f6; }
   .login_page_wrap_form .input_container--country {
     position: relative; }
-  .login_page_wrap_form .input_container--country::after {
-    display: block;
-    content: "Country";
+  .login_page_wrap_form .inputLabel {
+    visibility: hidden;
     position: absolute;
-    font-size: 12px;
+    display: block;
     left: 10px;
     top: 20px;
-    background-color: white;
+    background-color: #fff;
     padding: 0 5px;
-    color: #707579; }
-  .login_page_wrap_form .input_container--phone::after {
-    display: block;
-    content: "Phone Number";
-    position: absolute;
-    font-size: 12px;
-    left: 10px;
-    top: 20px;
-    background-color: white;
-    padding: 0 5px;
-    color: #707579; }
+    color: #707579;
+    font-size: 12px; }
   .login_page_wrap_form .form_default::-webkit-input-placeholder {
     color: #a3adb5; }
   .login_page_wrap_form .form_default:-ms-input-placeholder {
@@ -111,8 +99,8 @@ h1, h2, h3, h4, h5, h6, p {
     -o-transition: border-color .2s linear, box-shadow .2s linear;
     transition: border-color .2s linear, box-shadow .2s linear;
     transition: border-color .2s linear, box-shadow .2s linear, -webkit-box-shadow .2s linear; }
-  .login_page_wrap_form .form_default--country:focus ~ .input_container--country::after {
-    border: 1px solid red; }
+  .login_page_wrap_form .form_default:focus ~ .inputLabel {
+    color: #4ea4f6; }
   .login_page_wrap_form .input_select_button {
     position: absolute;
     right: 20px;
@@ -167,6 +155,7 @@ h1, h2, h3, h4, h5, h6, p {
     display: block;
     width: 24px;
     height: 24px;
+    background-color: blue;
     background: url("../../icons/checkboxon_svg.svg") no-repeat;
     background-size: 24px 24px;
     opacity: 0;
@@ -181,3 +170,11 @@ h1, h2, h3, h4, h5, h6, p {
     opacity: 0; }
   .login_page_wrap_form .checkbox__input:checked + .checkbox__label:after {
     opacity: 1; }
+  .login_page_wrap_form .input_select_button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: red; }

@@ -20,11 +20,11 @@ h1, h2, h3, h4, h5, h6, p
   max-width: 1230px
   padding: 0 15px
   margin: 0 auto
-  border: 1px solid blue
+  // border: 1px solid blue
 
 .login_page_wrap
   width: 100%
-  background-color: white
+  // background-color: white
   display: flex
   flex-direction: column
   justify-content: center
@@ -75,30 +75,39 @@ h1, h2, h3, h4, h5, h6, p
     position: relative
 
 
-  .input_container--country::after
-    display: block
-    content: "Country"
+  // .input_container--country::after
+  //   display: block
+  //   content: "Country"
+  //   position: absolute
+  //   font-size: 12px
+  //   left: 10px
+  //   top: 20px
+  //   background-color: white
+  //   padding: 0 5px
+  //   color: #707579
+  //
+  // .input_container--phone::after
+  //   display: block
+  //   content: "Phone Number"
+  //   position: absolute
+  //   font-size: 12px
+  //   left: 10px
+  //   top: 20px
+  //   background-color: white
+  //   padding: 0 5px
+  //   color: #707579
+
+  .inputLabel
+    visibility: hidden
     position: absolute
-    font-size: 12px
+    display: block
     left: 10px
     top: 20px
-    background-color: white
+    background-color: #fff
     padding: 0 5px
     color: #707579
-
-  // .input_container--country input
-  //   background: url("/Icons/up_1x.png") no-repeat 320px
-
-  .input_container--phone::after
-    display: block
-    content: "Phone Number"
-    position: absolute
     font-size: 12px
-    left: 10px
-    top: 20px
-    background-color: white
-    padding: 0 5px
-    color: #707579
+
 
   .form_default::placeholder
     color: #a3adb5
@@ -113,9 +122,8 @@ h1, h2, h3, h4, h5, h6, p
     box-shadow: 0 0 0 1px $textActiveColor
     transition: border-color .2s linear, box-shadow .2s linear
 
-  .form_default--country:focus ~ .input_container--country::after
-    border: 1px solid red
-
+  .form_default:focus ~ .inputLabel
+    color: $textActiveColor
 
 
   .input_select_button
@@ -181,7 +189,7 @@ h1, h2, h3, h4, h5, h6, p
       display: block
       width: 24px
       height: 24px
-
+      background-color: blue
       background: url('../../icons/checkboxon_svg.svg') no-repeat
       background-size: 24px 24px
       opacity: 0
@@ -205,11 +213,11 @@ h1, h2, h3, h4, h5, h6, p
 
 
 
-  // .input_select_button::before
-  //   content: ""
-  //   position: absolute
-  //   top: 0
-  //   bottom: 0
-  //   left: 0
-  //   right: 0
-  //   background-color: red
+  .input_select_button::before
+    content: ""
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: red

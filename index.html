@@ -10,36 +10,43 @@
       <div class="container">
 
         <div class="login_page_wrap_logo">
-
           <img src="assets/img/login/logoLogin.jpg" alt="">
-
         </div>
         <form class="login_page_wrap_form">
+
           <h1>Sign in to Telegram</h1>
           <p>Please confirm your number and enter your phone number.</p>
-          <div class="input_container input_container--country">
+
+          <div class="input_container input_container--country" id="countryInput">
+
             <input type="text" name="country" value="" placeholder="Select country" class="form_default form_default--country">
-            <!-- <span class="input_coment"></span> -->
-            <!-- <div class="input_select_item"> -->
             <img class="input_select_button" src='./icons/up_svg.svg' alt="">
-              <!-- <div class="input_select_bg"></div> -->
-            <!-- </div> -->
+            <label for="countryInput" class="inputLabel">Country</label>
+
           </div>
-          <div class="input_container input_container--phone">
+
+          <div class="input_container input_container--phone" id="phoneInput">
+
             <input type="text" name="phone" value="" placeholder="Your Phone" class="form_default">
-            <!-- <span class="input_coment">Phone Number</span> -->
+            <label for="phoneInput" class="inputLabel">Phone Number</label>
+
           </div>
+
           <div class="input_container checkbox_container">
+
             <div class="checkbox">
-                <input class="checkbox__input" type="checkbox" id="checkbox_1">
-                <label class="checkbox__label" for="checkbox_1">Keep me signed in</label>
+                <input class="checkbox__input" type="checkbox" id="checkbox">
+                <label class="checkbox__label" for="checkbox">Keep me signed in</label>
             </div>
+
           </div>
+
         </form>
 
 
 
       </div>
     </div>
+    <script type="text/javascript" src="assets/js/loginPage.js"></script>
   </body>
 </html>

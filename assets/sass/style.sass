@@ -17,11 +17,10 @@ h1, h2, h3, h4, h5, h6, p
 
 
 .container
-  width: 4800px
   max-width: 1230px
   padding: 0 15px
   margin: 0 auto
-  // border: 1px solid blue
+  border: 1px solid blue
 
 .login_page_wrap
   width: 100%
@@ -63,13 +62,13 @@ h1, h2, h3, h4, h5, h6, p
     position: relative
     box-sizing: inherit
     border-radius: 10px
-    // outline: none
+    outline: none
     width: 360px
     // height: 60px
     padding: 15px
     border: 1px solid #dadce0
     margin: 25px auto 0
-    transition: border .2s linear, box-shadow .2s linear
+
     caret-color: #4ea4f6
 
   .input_container--country
@@ -112,9 +111,10 @@ h1, h2, h3, h4, h5, h6, p
     position: relative
     border: 1px solid $textActiveColor
     box-shadow: 0 0 0 1px $textActiveColor
+    transition: border-color .2s linear, box-shadow .2s linear
 
-  .form_default:focus ~ .input_container--country::after
-    color: red
+  .form_default--country:focus ~ .input_container--country::after
+    border: 1px solid red
 
 
 
@@ -122,45 +122,20 @@ h1, h2, h3, h4, h5, h6, p
     position: absolute
     right: 20px
     top: 40px
-    transform: rotateZ(180deg)
-    transition: transform .5s linear
+    pointer-events: none
+    transform:  translateZ(50%)
+    transition: transform .3s linear
+
+  .form_default:focus ~ .input_select_button
+    transform: rotate(180deg)
+
+
 
   .checkbox_container
     margin-top: 30px
     height: 18px
     text-align: left
 
-  .form_checkbox
-    opacity: 50%
-    position: absolute
-    width: 18px
-    height: 18px
-    left: 20px
-    top: 0
-    margin: 0
-    // height: 14px
-    // width: 14px
-
-
-  .form_checkbox_checkmark
-    position: absolute
-    border-radius: 5px
-    background-color: red
-    height: 18px
-    width: 18px
-    left: 18px
-    top: 0
-    background: url("/Icons/checkbox_1x.png")
-    background-size: 18px 18px
-
-  .checkbox_container input:checked ~ .form_checkbox_checkmark
-    background-color: blue
-
-  .form_checkbox:checked ~ .form_checkbox_checkmark::after
-    display: block
-
-  .form_checkbox_checkmark::after
-    background: url("/Icons/checkboxon_1x.png")
 
   .checkbox
       position: relative
@@ -191,7 +166,7 @@ h1, h2, h3, h4, h5, h6, p
       height: 24px
 
       // border: 1px solid #ccc
-      background: url("/Icons/checkbox_1x.png") no-repeat
+      background-image: url('../../icons/checkboxempty_svg.svg')
       background-size: 24px 24px
 
       position: absolute
@@ -207,7 +182,7 @@ h1, h2, h3, h4, h5, h6, p
       width: 24px
       height: 24px
 
-      background: url("/Icons/checkboxon_1x.png") no-repeat
+      background: url('../../icons/checkboxon_svg.svg') no-repeat
       background-size: 24px 24px
       opacity: 0
 

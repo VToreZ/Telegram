@@ -139,6 +139,7 @@ h1, h2, h3, h4, h5, h6, p
 
 
 
+
   .checkbox_container
     margin-top: 30px
     height: 18px
@@ -221,3 +222,56 @@ h1, h2, h3, h4, h5, h6, p
     left: 0
     right: 0
     background-color: red
+
+  .country_list
+    display: block
+    visibility: hidden
+    opacity: 0
+    z-index: 2
+    position: absolute
+    top: 80px
+    margin: 0 auto
+    width: 360px
+    height: 180px
+    background: white
+    box-shadow: 0px 3px 10px silver
+    border-radius: 10px
+    overflow: hidden
+    transition: opacity 0.1s linear
+    ul
+      overflow: auto
+      display: block
+      list-style: none
+      width: 375px
+      height: 180px
+      margin: 0
+      padding: 0
+      cursor: pointer
+
+      li
+        vertical-align: middle
+        display: block
+        justify-content: center
+        padding: 14.5px 0
+        margin: auto 0
+        text-align: center
+        height: 45px
+
+        .countryFlag
+          float: left
+          margin-left: 35px
+          pointer-events: none
+
+        .countryName
+          float: left
+          margin-left: 30px
+          pointer-events: none
+
+        .countryNum
+          float: right
+          margin-right: 35px
+          color: #a3adb5
+          pointer-events: none
+
+      li:hover
+        background-color: #f5f5f5

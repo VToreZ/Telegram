@@ -11,6 +11,7 @@ body
     font-size: 16px
   h1
     font-size: 32px
+    font-weight: 700
 
 h1, h2, h3, h4, h5, h6, p
   margin: 0
@@ -24,7 +25,10 @@ h1, h2, h3, h4, h5, h6, p
 
 .login_page_wrap
   width: 100%
-  // background-color: white
+  position: absolute
+  left: 0
+  top: 0
+  // background-color: gold
   display: flex
   flex-direction: column
   justify-content: center
@@ -65,11 +69,29 @@ h1, h2, h3, h4, h5, h6, p
     outline: none
     width: 360px
     // height: 60px
-    padding: 15px
+    padding: 18px
     border: 1px solid #dadce0
     margin: 25px auto 0
 
     caret-color: #4ea4f6
+
+  .form_default--next
+    opacity: 0
+    cursor: pointer
+    visibility: hidden
+
+    font-weight: bold
+    color: #fff
+    border: none
+    font-size: 16px
+    position: relative
+    border-radius: 10px
+    outline: none
+    width: 360px
+    padding: 18px
+    margin: 25px auto 0
+    background-color: $textActiveColor
+    transition: opacity .2s linear
 
   .input_container--country
     position: relative
@@ -181,7 +203,7 @@ h1, h2, h3, h4, h5, h6, p
       position: absolute
       top: -3px
       left: 17px
-      z-index: 1
+      z-index: 0
       transition: background .1s linear, border .1s linear
 
 
@@ -198,7 +220,7 @@ h1, h2, h3, h4, h5, h6, p
       position: absolute
       top: -3px
       left: 17px
-      z-index: 2
+      z-index: 0
 
       transition: opacity .1s linear
 
@@ -227,9 +249,9 @@ h1, h2, h3, h4, h5, h6, p
     display: block
     visibility: hidden
     opacity: 0
-    z-index: 2
+    z-index: 3
     position: absolute
-    top: 80px
+    top: 90px
     margin: 0 auto
     width: 360px
     height: 180px
@@ -275,3 +297,10 @@ h1, h2, h3, h4, h5, h6, p
 
       li:hover
         background-color: #f5f5f5
+
+.codePage
+  visibility: hidden
+  background-color: gold
+
+  .form_default--code
+    // visibility: visible

@@ -8,7 +8,8 @@ body {
   body p {
     font-size: 16px; }
   body h1 {
-    font-size: 32px; }
+    font-size: 32px;
+    font-weight: 700; }
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0; }
@@ -20,6 +21,9 @@ h1, h2, h3, h4, h5, h6, p {
 
 .login_page_wrap {
   width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,10 +68,28 @@ h1, h2, h3, h4, h5, h6, p {
     border-radius: 10px;
     outline: none;
     width: 360px;
-    padding: 15px;
+    padding: 18px;
     border: 1px solid #dadce0;
     margin: 25px auto 0;
     caret-color: #4ea4f6; }
+  .login_page_wrap_form .form_default--next {
+    opacity: 0;
+    cursor: pointer;
+    visibility: hidden;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    position: relative;
+    border-radius: 10px;
+    outline: none;
+    width: 360px;
+    padding: 18px;
+    margin: 25px auto 0;
+    background-color: #4ea4f6;
+    -webkit-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear; }
   .login_page_wrap_form .input_container--country {
     position: relative; }
   .login_page_wrap_form .inputLabel {
@@ -146,7 +168,7 @@ h1, h2, h3, h4, h5, h6, p {
     position: absolute;
     top: -3px;
     left: 17px;
-    z-index: 1;
+    z-index: 0;
     -webkit-transition: background .1s linear, border .1s linear;
     -o-transition: background .1s linear, border .1s linear;
     transition: background .1s linear, border .1s linear; }
@@ -162,7 +184,7 @@ h1, h2, h3, h4, h5, h6, p {
     position: absolute;
     top: -3px;
     left: 17px;
-    z-index: 2;
+    z-index: 0;
     -webkit-transition: opacity .1s linear;
     -o-transition: opacity .1s linear;
     transition: opacity .1s linear; }
@@ -182,9 +204,9 @@ h1, h2, h3, h4, h5, h6, p {
     display: block;
     visibility: hidden;
     opacity: 0;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
-    top: 80px;
+    top: 90px;
     margin: 0 auto;
     width: 360px;
     height: 180px;
@@ -230,3 +252,7 @@ h1, h2, h3, h4, h5, h6, p {
           pointer-events: none; }
       .login_page_wrap_form .country_list ul li:hover {
         background-color: #f5f5f5; }
+
+.codePage {
+  visibility: hidden;
+  background-color: gold; }

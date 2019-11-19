@@ -53,47 +53,266 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 50px 15px; }
   .login_page_wrap_form p {
     color: #707579;
-    width: 240px;
+    width: 235px;
     margin: 20px auto 25px; }
-  .login_page_wrap_form .input_container {
+
+.input_container {
+  display: block;
+  position: relative;
+  width: 360px;
+  margin: 0 auto; }
+
+.form_default {
+  font-size: 16px;
+  position: relative;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  border-radius: 10px;
+  outline: none;
+  width: 360px;
+  padding: 18px;
+  border: 1px solid #dadce0;
+  margin: 25px auto 0;
+  caret-color: #4ea4f6; }
+
+.form_default--next {
+  opacity: 0;
+  cursor: pointer;
+  visibility: hidden;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  border-radius: 10px;
+  outline: none;
+  width: 360px;
+  padding: 18px;
+  margin: 25px auto 0;
+  background-color: #4ea4f6;
+  -webkit-transition: opacity .2s linear;
+  -o-transition: opacity .2s linear;
+  transition: opacity .2s linear; }
+
+.input_container--country {
+  position: relative; }
+
+.inputLabel {
+  opacity: 0;
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 20px;
+  background-color: #fff;
+  padding: 0 5px;
+  color: #707579;
+  font-size: 12px;
+  -webkit-transition: opacity .1s linear, color .1s linear;
+  -o-transition: opacity .1s linear, color .1s linear;
+  transition: opacity .1s linear, color .1s linear; }
+
+.codeLabel {
+  opacity: 0;
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 20px;
+  background-color: #fff;
+  padding: 0 5px;
+  color: red;
+  font-size: 12px; }
+
+.form_default::-webkit-input-placeholder {
+  color: #a3adb5; }
+
+.form_default:-ms-input-placeholder {
+  color: #a3adb5; }
+
+.form_default::-ms-input-placeholder {
+  color: #a3adb5; }
+
+.form_default::placeholder {
+  color: #a3adb5; }
+
+.form_default:focus {
+  outline: none;
+  position: relative;
+  border: 1px solid #4ea4f6;
+  -webkit-box-shadow: 0 0 0 1px #4ea4f6;
+  box-shadow: 0 0 0 1px #4ea4f6;
+  -webkit-transition: border-color .2s linear, -webkit-box-shadow .2s linear;
+  transition: border-color .2s linear, -webkit-box-shadow .2s linear;
+  -o-transition: border-color .2s linear, box-shadow .2s linear;
+  transition: border-color .2s linear, box-shadow .2s linear;
+  transition: border-color .2s linear, box-shadow .2s linear, -webkit-box-shadow .2s linear; }
+
+.form_default:focus ~ .inputLabel {
+  color: #4ea4f6; }
+
+.input_select_button {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  pointer-events: none;
+  -webkit-transform: translateZ(50%);
+  transform: translateZ(50%);
+  -webkit-transition: -webkit-transform .3s linear;
+  transition: -webkit-transform .3s linear;
+  -o-transition: transform .3s linear;
+  transition: transform .3s linear;
+  transition: transform .3s linear, -webkit-transform .3s linear; }
+
+.form_default:focus ~ .input_select_button {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.checkbox_container {
+  margin-top: 30px;
+  height: 18px;
+  text-align: left; }
+
+.checkbox {
+  position: relative;
+  margin-bottom: 1rem; }
+
+.checkbox__input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: -3px;
+  left: 17px; }
+
+.checkbox__label {
+  padding-left: 82px;
+  font-size: 1rem;
+  color: #060606;
+  cursor: pointer; }
+
+.checkbox__label:before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../icons/checkboxempty_svg.svg");
+  background-size: 24px 24px;
+  position: absolute;
+  top: -3px;
+  left: 17px;
+  z-index: 0;
+  -webkit-transition: background .1s linear, border .1s linear;
+  -o-transition: background .1s linear, border .1s linear;
+  transition: background .1s linear, border .1s linear; }
+
+.checkbox__label:after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: blue;
+  background: url("../../icons/checkboxon_svg.svg") no-repeat;
+  background-size: 24px 24px;
+  opacity: 0;
+  position: absolute;
+  top: -3px;
+  left: 17px;
+  z-index: 0;
+  -webkit-transition: opacity .1s linear;
+  -o-transition: opacity .1s linear;
+  transition: opacity .1s linear; }
+
+.checkbox__input:checked + .checkbox__label:before {
+  opacity: 0; }
+
+.checkbox__input:checked + .checkbox__label:after {
+  opacity: 1; }
+
+.input_select_button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: red; }
+
+.country_list {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 3;
+  position: absolute;
+  top: 90px;
+  margin: 0 auto;
+  width: 360px;
+  height: 180px;
+  background: white;
+  -webkit-box-shadow: 0px 3px 10px silver;
+  box-shadow: 0px 3px 10px silver;
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear; }
+  .country_list ul {
+    overflow: auto;
     display: block;
-    position: relative;
-    width: 360px;
-    margin: 0 auto; }
-  .login_page_wrap_form .form_default {
-    font-size: 16px;
-    position: relative;
-    -webkit-box-sizing: inherit;
-    box-sizing: inherit;
-    border-radius: 10px;
-    outline: none;
-    width: 360px;
-    padding: 18px;
-    border: 1px solid #dadce0;
-    margin: 25px auto 0;
-    caret-color: #4ea4f6; }
-  .login_page_wrap_form .form_default--next {
-    opacity: 0;
+    list-style: none;
+    width: 375px;
+    height: 180px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer; }
+    .country_list ul li {
+      vertical-align: middle;
+      display: block;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      padding: 14.5px 0;
+      margin: auto 0;
+      text-align: center;
+      height: 45px; }
+      .country_list ul li .countryFlag {
+        float: left;
+        margin-left: 35px;
+        pointer-events: none; }
+      .country_list ul li .countryName {
+        float: left;
+        margin-left: 30px;
+        pointer-events: none; }
+      .country_list ul li .countryNum {
+        float: right;
+        margin-right: 35px;
+        color: #a3adb5;
+        pointer-events: none; }
+    .country_list ul li:hover {
+      background-color: #f5f5f5; }
+
+.signPage {
+  visibility: visible; }
+
+.codePage {
+  visibility: hidden; }
+
+.passPage {
+  visibility: hidden; }
+  .passPage .input_show_button {
+    opacity: 40%;
+    position: absolute;
+    right: 20px;
+    top: 40px;
     cursor: pointer;
-    visibility: hidden;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    font-size: 16px;
-    position: relative;
-    border-radius: 10px;
-    outline: none;
-    width: 360px;
-    padding: 18px;
-    margin: 25px auto 0;
-    background-color: #4ea4f6;
-    -webkit-transition: opacity .2s linear;
-    -o-transition: opacity .2s linear;
-    transition: opacity .2s linear; }
-  .login_page_wrap_form .input_container--country {
-    position: relative; }
-  .login_page_wrap_form .inputLabel {
-    visibility: hidden;
+    -webkit-transform: translateZ(50%);
+    transform: translateZ(50%);
+    -webkit-transition: opacity .1s linear;
+    -o-transition: opacity .1s linear;
+    transition: opacity .1s linear; }
+  .passPage .input_show_button:hover {
+    opacity: 65%; }
+  .passPage .passLabel {
+    opacity: 0;
     position: absolute;
     display: block;
     left: 10px;
@@ -102,157 +321,35 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0 5px;
     color: #707579;
     font-size: 12px; }
-  .login_page_wrap_form .form_default::-webkit-input-placeholder {
-    color: #a3adb5; }
-  .login_page_wrap_form .form_default:-ms-input-placeholder {
-    color: #a3adb5; }
-  .login_page_wrap_form .form_default::-ms-input-placeholder {
-    color: #a3adb5; }
-  .login_page_wrap_form .form_default::placeholder {
-    color: #a3adb5; }
-  .login_page_wrap_form .form_default:focus {
-    outline: none;
-    position: relative;
-    border: 1px solid #4ea4f6;
-    -webkit-box-shadow: 0 0 0 1px #4ea4f6;
-    box-shadow: 0 0 0 1px #4ea4f6;
-    -webkit-transition: border-color .2s linear, -webkit-box-shadow .2s linear;
-    transition: border-color .2s linear, -webkit-box-shadow .2s linear;
-    -o-transition: border-color .2s linear, box-shadow .2s linear;
-    transition: border-color .2s linear, box-shadow .2s linear;
-    transition: border-color .2s linear, box-shadow .2s linear, -webkit-box-shadow .2s linear; }
-  .login_page_wrap_form .form_default:focus ~ .inputLabel {
-    color: #4ea4f6; }
-  .login_page_wrap_form .input_select_button {
-    position: absolute;
-    right: 20px;
-    top: 40px;
-    pointer-events: none;
-    -webkit-transform: translateZ(50%);
-    transform: translateZ(50%);
-    -webkit-transition: -webkit-transform .3s linear;
-    transition: -webkit-transform .3s linear;
-    -o-transition: transform .3s linear;
-    transition: transform .3s linear;
-    transition: transform .3s linear, -webkit-transform .3s linear; }
-  .login_page_wrap_form .form_default:focus ~ .input_select_button {
-    -webkit-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg); }
-  .login_page_wrap_form .checkbox_container {
-    margin-top: 30px;
-    height: 18px;
-    text-align: left; }
-  .login_page_wrap_form .checkbox {
-    position: relative;
-    margin-bottom: 1rem; }
-  .login_page_wrap_form .checkbox__input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    position: absolute;
-    top: -3px;
-    left: 17px; }
-  .login_page_wrap_form .checkbox__label {
-    padding-left: 82px;
-    font-size: 1rem;
-    color: #060606;
-    cursor: pointer; }
-  .login_page_wrap_form .checkbox__label:before {
-    content: "";
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-image: url("../../icons/checkboxempty_svg.svg");
-    background-size: 24px 24px;
-    position: absolute;
-    top: -3px;
-    left: 17px;
-    z-index: 0;
-    -webkit-transition: background .1s linear, border .1s linear;
-    -o-transition: background .1s linear, border .1s linear;
-    transition: background .1s linear, border .1s linear; }
-  .login_page_wrap_form .checkbox__label:after {
-    content: "";
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-color: blue;
-    background: url("../../icons/checkboxon_svg.svg") no-repeat;
-    background-size: 24px 24px;
-    opacity: 0;
-    position: absolute;
-    top: -3px;
-    left: 17px;
-    z-index: 0;
-    -webkit-transition: opacity .1s linear;
-    -o-transition: opacity .1s linear;
-    transition: opacity .1s linear; }
-  .login_page_wrap_form .checkbox__input:checked + .checkbox__label:before {
-    opacity: 0; }
-  .login_page_wrap_form .checkbox__input:checked + .checkbox__label:after {
-    opacity: 1; }
-  .login_page_wrap_form .input_select_button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: red; }
-  .login_page_wrap_form .country_list {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 3;
-    position: absolute;
-    top: 90px;
-    margin: 0 auto;
-    width: 360px;
-    height: 180px;
-    background: white;
-    -webkit-box-shadow: 0px 3px 10px silver;
-    box-shadow: 0px 3px 10px silver;
-    border-radius: 10px;
-    overflow: hidden;
-    -webkit-transition: opacity 0.1s linear;
-    -o-transition: opacity 0.1s linear;
-    transition: opacity 0.1s linear; }
-    .login_page_wrap_form .country_list ul {
-      overflow: auto;
-      display: block;
-      list-style: none;
-      width: 375px;
-      height: 180px;
-      margin: 0;
-      padding: 0;
-      cursor: pointer; }
-      .login_page_wrap_form .country_list ul li {
-        vertical-align: middle;
-        display: block;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        padding: 14.5px 0;
-        margin: auto 0;
-        text-align: center;
-        height: 45px; }
-        .login_page_wrap_form .country_list ul li .countryFlag {
-          float: left;
-          margin-left: 35px;
-          pointer-events: none; }
-        .login_page_wrap_form .country_list ul li .countryName {
-          float: left;
-          margin-left: 30px;
-          pointer-events: none; }
-        .login_page_wrap_form .country_list ul li .countryNum {
-          float: right;
-          margin-right: 35px;
-          color: #a3adb5;
-          pointer-events: none; }
-      .login_page_wrap_form .country_list ul li:hover {
-        background-color: #f5f5f5; }
 
-.codePage {
-  visibility: hidden;
-  background-color: gold; }
+.namePage {
+  visibility: hidden; }
+  .namePage .login_page_wrap_logo {
+    background-color: #4ea4f6;
+    width: 160px;
+    height: 160px;
+    border-radius: 100%; }
+  .namePage .addPhotoButton {
+    width: 54px; }
+
+.nameLabel {
+  opacity: 0;
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 20px;
+  background-color: #fff;
+  padding: 0 5px;
+  color: #707579;
+  font-size: 12px; }
+
+.lastNameLabel {
+  opacity: 0;
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 20px;
+  background-color: #fff;
+  padding: 0 5px;
+  color: #707579;
+  font-size: 12px; }

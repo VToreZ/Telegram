@@ -21,6 +21,26 @@ const passNext = document.querySelector(".passNext");
 const namePage = document.querySelector(".namePage");
 const nameInput = document.querySelector(".form_default--name");
 const lastNameInput = document.querySelector(".form_default--lastName");
+const photoButton = document.querySelector(".namePage .login_page_wrap_logo");
+const addPhotoModule = document.querySelector(".addPhotoModule");
+/////////////////////////////////////////////////////// MAIN PAGE
+
+const mainPage = document.querySelector(".mainPage");
+
+/////////////////////////////////////////////////////// API
+
+function s(e) {
+        return MtpApiManager.invokeApi("auth.sendCode", {
+            flags: 0,
+            phone_number: e,
+            api_id: Config.App.id,
+            api_hash: Config.App.hash,
+            lang_code: navigator.language || "en"
+        }, {
+            dcID: 2,
+            createNetworker: !0
+        })
+    }
 
 // const country_item = document.querySelector()
 let len = 0;
@@ -154,6 +174,8 @@ formPhone.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     if (phoneNumValid(formPhone.value)) {
       let phoneNum = formPhone.value;
+      // s(phoneNum);
+      // auth.sendCode();
       document.querySelector(".codePage").style.visibility = "visible";
       document.querySelector(".headerNum").innerText = phoneNum;
       document.querySelector(".signPage").style.visibility = "hidden";
@@ -335,3 +357,56 @@ lastNameInput.oninput = () => {
     document.querySelector(".lastNameLabel").style.opacity = "0";
   }
 };
+
+nameInput.onkeydown = (event) => {
+  if (event.key === "Enter" && nameInput.value) {
+    lastNameInput.focus();
+    // document.querySelector(".form_default--start").style.opacity = 1;
+  }
+};
+
+lastNameInput.onkeydown = (event) => {
+  if (event.key === "Enter" && nameInput.value) {
+    // NEXT
+  }
+};
+
+lastNameInput.onfocus = (event) => {
+  document.querySelector(".form_default--start").style.opacity = 1;
+};
+
+photoButton.onmousedown = (event) => {
+  addPhotoModule.style.visibility = "visible";
+  addPhotoModule.style.opacity = "1";
+};
+
+document.querySelector(".addPhotoClose").onmousedown = (event) => {
+  addPhotoModule.style.opacity = "0";
+  setTimeout(() => {addPhotoModule.style.visibility = "hidden"}, 200);
+}
+
+document.querySelector(".addPhotoCheckButton").onmousedown = (event) => {
+  addPhotoModule.style.opacity = "0";
+  setTimeout(() => {addPhotoModule.style.visibility = "hidden"}, 200);
+}
+
+document.querySelector(".form_default--start").onclick = (event) => {
+  namePage.style.opacity = 0;
+  setTimeout(() => {
+    namePage.style.visibility = "hidden";
+    document.querySelector(".form_default--start").style.visibility = "hidden";
+}, 200);
+  mainPage.style.visibility = "visible";
+}
+
+lastNameInput.onkeydown = (event) => {
+  if (event.key == "Enter") {
+    namePage.style.opacity = 0;
+    setTimeout(() => {
+      namePage.style.visibility = "hidden";
+      document.querySelector(".form_default--start").style.visibility = "hidden";
+  }, 200);
+    mainPage.style.visibility = "visible";
+    event.preventDefault();
+  }
+}

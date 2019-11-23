@@ -26,8 +26,11 @@ const addPhotoModule = document.querySelector(".addPhotoModule");
 /////////////////////////////////////////////////////// MAIN PAGE
 
 const mainPage = document.querySelector(".mainPage");
-
+////////////// Чекнуть http://entry1100-jsround1.usercontest.com/
 /////////////////////////////////////////////////////// API
+
+const logContr = new AppLoginController;
+const mtp = new MtpApiManage;
 
 function s(e) {
         return MtpApiManager.invokeApi("auth.sendCode", {

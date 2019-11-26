@@ -29,8 +29,31 @@ const mainPage = document.querySelector(".mainPage");
 ////////////// Чекнуть http://entry1100-jsround1.usercontest.com/
 /////////////////////////////////////////////////////// API
 
-const logContr = new AppLoginController;
-const mtp = new MtpApiManage;
+
+
+function send() {
+  let phoneNum = formPhone.value;
+    T19.api('auth.sendCode', {
+      flags: 0,
+      lang_code: 'en',
+      phone_number: phoneNum,
+    }).then((response) => {
+      // setState('phone_code_hash', response.phone_code_hash);
+      // showPage('loginCode');
+      console.log("resp");
+    }).catch(({error_code, error_message}) => {
+      console.log('login catch', error_code, error_message);
+      if (error_code === 500 && error_message == "AUTH_RESTART") {
+        send();
+      } else if (error_code === 400 && error_message == "PHONE_NUMBER_INVALID") {
+        phoneInput.classList.add('error');
+      }
+    });
+  }
+
+
+// const logContr = new AppLoginController;
+// const mtp = new MtpApiManage;
 
 function s(e) {
         return MtpApiManager.invokeApi("auth.sendCode", {
@@ -220,8 +243,10 @@ formSubmit.addEventListener("transitionend", () => {
 const codeInput = document.querySelector(".form_default--code");
 
 formSubmit.addEventListener("mousedown", () => {
+  console.log("aaa");
   if (phoneNumValid(formPhone.value)) {
     let phoneNum = formPhone.value;
+    send();
     document.querySelector(".codePage").style.visibility = "visible";
     document.querySelector(".headerNum").innerText = phoneNum;
     document.querySelector(".signPage").style.visibility = "hidden";
@@ -375,7 +400,10 @@ lastNameInput.onkeydown = (event) => {
 };
 
 lastNameInput.onfocus = (event) => {
-  document.querySelector(".form_default--start").style.opacity = 1;
+  setTimeout(() => {
+    document.querySelector(".form_default--start").style.opacity = 1;
+}, 200);
+document.querySelector(".form_default--start").style.visibility = "visible";
 };
 
 photoButton.onmousedown = (event) => {
@@ -407,7 +435,7 @@ lastNameInput.onkeydown = (event) => {
     namePage.style.opacity = 0;
     setTimeout(() => {
       namePage.style.visibility = "hidden";
-      document.querySelector(".form_default--start").style.visibility = "hidden";
+      document.querySelector(".form_default--start").style.visibility = "hidden ";
   }, 200);
     mainPage.style.visibility = "visible";
     event.preventDefault();

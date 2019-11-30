@@ -28,8 +28,34 @@ const addPhotoModule = document.querySelector(".addPhotoModule");
 const mainPage = document.querySelector(".mainPage");
 ////////////// Чекнуть http://entry1100-jsround1.usercontest.com/
 /////////////////////////////////////////////////////// API
+let phoneCodeHash;
 
-
+function sign() {
+  let phoneCode = codeInput.value;
+  let phoneNum = formPhone.value;
+  T19.api("auth.signIn", {
+    flags: 0,
+    phone_number: phoneNum,
+    phone_code_hash: phoneCodeHash,
+    phone_code: phoneCode,
+  }).then((response) => {
+      document.querySelector(".codePage").style.visibility = "hidden";
+      document.querySelector('.passPage').style.visibility = "visible";
+      passNext.style.visibility = "visible";
+      passNext.style.opacity = "1";
+      passInput.focus();
+  }).catch(({error_code, error_message}) => {
+    console.log('login catch', error_code, error_message);
+    if (error_code === 500 && error_message == "AUTH_RESTART") {
+      sign();
+    } else if (error_code === 400 && error_message == "PHONE_CODE_INVALID") {
+      codeInput.style.boxShadow = "0 0 0 1px red";
+      codeInput.style.borderColor = "red";
+      codeLabel.style.opacity = 1;
+      console.log("CODE_INVALIDEEEE");
+    }
+  });
+}
 
 function send() {
   let phoneNum = formPhone.value;
@@ -38,15 +64,23 @@ function send() {
       lang_code: 'en',
       phone_number: phoneNum,
     }).then((response) => {
+      document.querySelector(".codePage").style.visibility = "visible";
+      document.querySelector(".headerNum").innerText = phoneNum;
+      document.querySelector(".signPage").style.visibility = "hidden";
+      formSubmit.style.visibility = "hidden";
+      codeInput.focus();
+      phoneCodeHash = response.phone_code_hash;
+      // SIGN UP if response.term_of_service
+
       // setState('phone_code_hash', response.phone_code_hash);
-      // showPage('loginCode');
-      console.log("resp");
+
     }).catch(({error_code, error_message}) => {
       console.log('login catch', error_code, error_message);
       if (error_code === 500 && error_message == "AUTH_RESTART") {
         send();
       } else if (error_code === 400 && error_message == "PHONE_NUMBER_INVALID") {
-        phoneInput.classList.add('error');
+          formPhone.style.border = "1px solid red";
+          console.log("PHONE_NUMBER_INVALIDEEEE");
       }
     });
   }
@@ -199,15 +233,7 @@ formPhone.addEventListener("keydown", (event) => {
   }
   if (event.key === "Enter") {
     if (phoneNumValid(formPhone.value)) {
-      let phoneNum = formPhone.value;
-      // s(phoneNum);
-      // auth.sendCode();
-      document.querySelector(".codePage").style.visibility = "visible";
-      document.querySelector(".headerNum").innerText = phoneNum;
-      document.querySelector(".signPage").style.visibility = "hidden";
-      formSubmit.style.visibility = "hidden";
-      event.preventDefault();
-      codeInput.focus();
+      send();
     }
     // else {
     //   formPhone.style.border = "1px solid red"
@@ -247,17 +273,7 @@ formSubmit.addEventListener("mousedown", () => {
   if (phoneNumValid(formPhone.value)) {
     let phoneNum = formPhone.value;
     send();
-    document.querySelector(".codePage").style.visibility = "visible";
-    document.querySelector(".headerNum").innerText = phoneNum;
-    document.querySelector(".signPage").style.visibility = "hidden";
-    formSubmit.style.visibility = "hidden";
-    event.preventDefault();
-    codeInput.focus();
-  } else {
-    formPhone.style.border = "1px solid red";
-    console.log("asdsad");
-  }
-});  //PAGE 2
+}});  //PAGE 2
 
 // let codeValid = false;
 
@@ -289,17 +305,7 @@ codeInput.addEventListener("input", (event) => {
   codeInput.style.borderColor = "#4ea4f6";
   codeLabel.style.opacity = 0;
   if (codeInput.value.length == 5) {
-    if (codeValid(codeInput.value)) {
-      document.querySelector(".codePage").style.visibility = "hidden";
-      document.querySelector('.passPage').style.visibility = "visible";
-      passNext.style.visibility = "visible";
-      passNext.style.opacity = "1";
-      passInput.focus();
-    } else {
-      codeInput.style.boxShadow = "0 0 0 1px red";
-      codeInput.style.borderColor = "red";
-      codeLabel.style.opacity = 1;
-    };
+    sign();
 
 }});
 
